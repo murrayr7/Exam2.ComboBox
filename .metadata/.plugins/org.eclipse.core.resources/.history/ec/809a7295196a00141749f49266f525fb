@@ -1,0 +1,121 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+import java.awt.GridBagLayout;
+
+import javax.swing.JLabel;
+
+import java.awt.GridBagConstraints;
+
+import javax.swing.JComboBox;
+
+import java.awt.Insets;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+
+public class ComboBoxes {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ComboBoxes window = new ComboBoxes();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ComboBoxes() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		frame.getContentPane().setLayout(gridBagLayout);
+		
+		Calendar currentDate = new GregorianCalendar();
+		
+		JLabel lblMonth = new JLabel("Month:");
+		GridBagConstraints gbc_lblMonth = new GridBagConstraints();
+		gbc_lblMonth.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMonth.anchor = GridBagConstraints.EAST;
+		gbc_lblMonth.gridx = 0;
+		gbc_lblMonth.gridy = 0;
+		frame.getContentPane().add(lblMonth, gbc_lblMonth);
+		
+		JComboBox<String> comboBoxMonth = new JComboBox();
+		comboBoxMonth.insertItemAt("January",1);
+		comboBoxMonth.insertItemAt("February",2);
+		comboBoxMonth.insertItemAt("March",3);
+		comboBoxMonth.insertItemAt("April",4);
+		comboBoxMonth.insertItemAt("May",5);
+		comboBoxMonth.insertItemAt("June",6);
+		comboBoxMonth.insertItemAt("July",7);
+		comboBoxMonth.insertItemAt("August",8);
+		comboBoxMonth.insertItemAt("September",9);
+		comboBoxMonth.insertItemAt("October",10);
+		comboBoxMonth.insertItemAt("November",11);
+		comboBoxMonth.insertItemAt("December",12);
+		GridBagConstraints gbc_comboBoxMonth = new GridBagConstraints();
+		gbc_comboBoxMonth.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBoxMonth.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBoxMonth.gridx = 1;
+		gbc_comboBoxMonth.gridy = 0;
+		frame.getContentPane().add(comboBoxMonth, gbc_comboBoxMonth);
+		
+		JLabel lblDay = new JLabel("Day:");
+		GridBagConstraints gbc_lblDay = new GridBagConstraints();
+		gbc_lblDay.anchor = GridBagConstraints.EAST;
+		gbc_lblDay.insets = new Insets(0, 0, 5, 5);
+		gbc_lblDay.gridx = 0;
+		gbc_lblDay.gridy = 1;
+		frame.getContentPane().add(lblDay, gbc_lblDay);
+		
+		JComboBox comboBoxDay = new JComboBox();
+		GridBagConstraints gbc_comboBoxDay = new GridBagConstraints();
+		gbc_comboBoxDay.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBoxDay.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBoxDay.gridx = 1;
+		gbc_comboBoxDay.gridy = 1;
+		frame.getContentPane().add(comboBoxDay, gbc_comboBoxDay);
+		
+		JLabel lblYear = new JLabel("Year:");
+		GridBagConstraints gbc_lblYear = new GridBagConstraints();
+		gbc_lblYear.anchor = GridBagConstraints.EAST;
+		gbc_lblYear.insets = new Insets(0, 0, 0, 5);
+		gbc_lblYear.gridx = 0;
+		gbc_lblYear.gridy = 2;
+		frame.getContentPane().add(lblYear, gbc_lblYear);
+		
+		JComboBox comboBoxYear = new JComboBox();
+		GridBagConstraints gbc_comboBoxYear = new GridBagConstraints();
+		gbc_comboBoxYear.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBoxYear.gridx = 1;
+		gbc_comboBoxYear.gridy = 2;
+		frame.getContentPane().add(comboBoxYear, gbc_comboBoxYear);
+	}
+
+}
